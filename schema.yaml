@@ -1,0 +1,9 @@
+columns:
+  Date: object
+  GoldPrice: float64
+  BankRate: float64
+  CrudeOilRate: float64
+  RepoRate: float64
+  UsdInr: float64
+
+targer_colunm: RepoRate

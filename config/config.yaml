@@ -4,3 +4,8 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   local_data_file_path: artifacts/data_ingestion/dataset.csv
   source_url: raw_data/finalRepoRate.csv
+
+data_validation:
+  root_dir: artifacts/data_validation
+  dataset_file_path: artifacts/data_ingestion/dataset.csv
+  validation_status_file_path: artifacts/data_validation/status.txt
