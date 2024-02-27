@@ -18,3 +18,13 @@ stages:
       - schema.yaml:
     outs:
       - artifacts/data_validation/status.txt
+  data_transformation:
+    cmd: py -m src.repoRatePred.pipeline.stage_03_data_transformation_pipeline
+    deps:
+      - src/repoRatePred/pipeline/stage_03_data_transformation_pipeline.py
+      - src/repoRatePred/components/data_transformation.py
+    params:
+      - config/config.yaml:
+        - data_transformation
+      - schema.yaml:
+        - targer_colunm

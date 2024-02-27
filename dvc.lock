@@ -48,3 +48,27 @@ stages:
       hash: md5
       md5: f827cf462f62848df37c5e1e94a4da74
       size: 4
+  data_transformation:
+    cmd: py -m src.repoRatePred.pipeline.stage_03_data_transformation_pipeline
+    deps:
+    - path: src/repoRatePred/components/data_transformation.py
+      hash: md5
+      md5: 0a49d2215662fd31d47bcd1f4f8d942d
+      size: 2404
+    - path: src/repoRatePred/pipeline/stage_03_data_transformation_pipeline.py
+      hash: md5
+      md5: cff6a6ccc3f147fdc0bf77dec73f23f2
+      size: 892
+    params:
+      config/config.yaml:
+        data_transformation:
+          root_dir: artifacts/data_transformation
+          dataset_file_path: artifacts/data_ingestion/dataset.csv
+          processed_dataset_file_path: artifacts/data_transformation/processed_dataset.csv
+          preprocessor_obj_path: artifacts/data_transformation/preprocessor.pkl
+          test_size: 0.3
+          train_dataset_file_path: artifacts/data_transformation/train.csv
+          test_dataset_file_path: artifacts/data_transformation/test.csv
+          random_state: 57
+      schema.yaml:
+        targer_colunm: RepoRate

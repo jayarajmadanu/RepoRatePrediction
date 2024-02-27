@@ -9,3 +9,13 @@ data_validation:
   root_dir: artifacts/data_validation
   dataset_file_path: artifacts/data_ingestion/dataset.csv
   validation_status_file_path: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  dataset_file_path: artifacts/data_ingestion/dataset.csv
+  processed_dataset_file_path: artifacts/data_transformation/processed_dataset.csv
+  preprocessor_obj_path: artifacts/data_transformation/preprocessor.pkl
+  test_size: 0.3
+  train_dataset_file_path: artifacts/data_transformation/train.csv
+  test_dataset_file_path: artifacts/data_transformation/test.csv
+  random_state: 57
