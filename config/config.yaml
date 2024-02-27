@@ -1,0 +1,6 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  local_data_file_path: artifacts/data_ingestion/dataset.csv
+  source_url: raw_data/finalRepoRate.csv
