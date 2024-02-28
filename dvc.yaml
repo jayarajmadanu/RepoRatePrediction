@@ -28,3 +28,15 @@ stages:
         - data_transformation
       - schema.yaml:
         - targer_colunm
+  data_training:
+    cmd: py -m src.repoRatePred.pipeline.stage_04_data_training_pipeline
+    deps: 
+      - src/repoRatePred/pipeline/stage_04_data_training_pipeline.py
+      - src/repoRatePred/components/data_trainer.py
+    params:
+      - config/config.yaml:
+        - model_trainer
+      - params.yaml:
+        - model_trainer
+    outs:
+      - artifacts/model_trainer/model.pkl

@@ -19,3 +19,10 @@ data_transformation:
   train_dataset_file_path: artifacts/data_transformation/train.csv
   test_dataset_file_path: artifacts/data_transformation/test.csv
   random_state: 57
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_data_path: artifacts/data_transformation/train.csv
+  test_data_path: artifacts/data_transformation/test.csv
+  model_name: model.pkl
+  best_parsms: artifacts/model_trainer/bestParams.txt

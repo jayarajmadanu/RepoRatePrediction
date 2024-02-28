@@ -4,13 +4,14 @@ from src.repoRatePred.utils.common import create_directories, save_object
 
 import pandas as pd
 from scipy.stats import boxcox
-from sklearn.preprocessing import OneHotEncoder, StandardScaler, FunctionTransformer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler, FunctionTransformer, PowerTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 import numpy as np
 from imblearn.over_sampling import SMOTE
 from collections import Counter
+from sklearn.base import BaseEstimator, TransformerMixin
 
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
@@ -19,7 +20,7 @@ class DataTransformation:
         
     def transform_data(self) -> ColumnTransformer:
         LogTransformer = FunctionTransformer(np.log1p)
-        BoxcoxTransformer = FunctionTransformer(boxcox)
+        #BoxcoxTransformer = FunctionTransformer(boxcox)
         try:
             ## NOTE: Colunm Transformer will change the order of colunms after applying transformation, so check the value of index mentioned in colunmTransformer after eact CT        
             tr1 = ColumnTransformer([
@@ -27,12 +28,12 @@ class DataTransformation:
             ], remainder='passthrough')
             
             tr2 = ColumnTransformer([
-                ('BoxcoxTransformer', BoxcoxTransformer, [2])
+                ('BoxcoxTransformer', PowerTransformer(method='box-cox'), [2])
             ], remainder='passthrough')
             
             tr3 = ColumnTransformer([
                 ('StandardScalar', StandardScaler(), slice(0,4))
-            ])
+            ], remainder='passthrough')
             pipeline = Pipeline(
                 steps=[
                     ('tr1', tr1),

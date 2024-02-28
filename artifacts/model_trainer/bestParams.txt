@@ -1,0 +1,10 @@
+Best Params for Random Forest are 
+ {'max_depth': 5, 'max_features': 'sqrt', 'n_estimators': 32, 'n_jobs': -1}
+Best Params for Elastic Net are 
+ {'alpha': 0.9, 'l1_ratio': 0.8}
+Best Params for XGBRegressor are 
+ {'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 128, 'n_jobs': -1}
+Best Params for AdaBoost Regressor are 
+ {'learning_rate': 0.001, 'n_estimators': 8}
+Best Params for Gradient Boosting are 
+ {'learning_rate': 0.1, 'max_depth': 3, 'max_features': 'log2', 'n_estimators': 64, 'subsample': 0.75}
