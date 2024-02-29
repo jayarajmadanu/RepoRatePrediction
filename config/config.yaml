@@ -26,3 +26,10 @@ model_trainer:
   test_data_path: artifacts/data_transformation/test.csv
   model_name: model.pkl
   best_parsms: artifacts/model_trainer/bestParams.txt
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  mlflow_uri: http://127.0.0.1:8080
+  test_data_path: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/model.pkl
+  preprocessor_path: artifacts/data_transformation/preprocessor.pkl

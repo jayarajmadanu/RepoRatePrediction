@@ -1,4 +1,4 @@
-from sklearn.ensemble import  AdaBoostRegressor, GradientBoostingRegressor, RandomForestRegressor, StackingClassifier
+from sklearn.ensemble import  AdaBoostRegressor, GradientBoostingRegressor, RandomForestRegressor
 from sklearn.linear_model import ElasticNet
 from src.repoRatePred.logger import logger
 from src.repoRatePred.entity.config_entity import DataTrainingConfig
@@ -85,3 +85,4 @@ class DataTrainer:
                 raise e
         logger.info(f'Model Evaluation report: \n{report}')
         return report
+    

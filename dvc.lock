@@ -77,8 +77,8 @@ stages:
     deps:
     - path: src/repoRatePred/components/data_trainer.py
       hash: md5
-      md5: b53579953b1d155e6a0e98b52a4e8c91
-      size: 3839
+      md5: 91ec49124e816880cd779a93fb9c5f3f
+      size: 3825
     - path: src/repoRatePred/pipeline/stage_04_data_training_pipeline.py
       hash: md5
       md5: a7c39701609d61ee4280d321a10b9ed8
@@ -177,5 +177,5 @@ stages:
     outs:
     - path: artifacts/model_trainer/model.pkl
       hash: md5
-      md5: f81609b0500c12c16e88882bad46f4ac
-      size: 85755
+      md5: 25985b316a03688d1f2d4e534e34f001
+      size: 227715

@@ -2,6 +2,7 @@ from src.repoRatePred.pipeline.stage_01_data_ingestion_pipeline import DataInges
 from src.repoRatePred.pipeline.stage_02_data_validation_pipeline import DataValidationPipeline
 from src.repoRatePred.pipeline.stage_03_data_transformation_pipeline import DataTransformationPipeline
 from src.repoRatePred.pipeline.stage_04_data_training_pipeline import DataTrainingPipeline
+from src.repoRatePred.pipeline.stage_05_data_evaluation_pipeline import ModelEvaluationPipeline
 from src.repoRatePred.logger import logger
 from src.repoRatePred.config.configuration import ConfigurationManager
 
@@ -51,3 +52,14 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+STAGE_NAME = "Model evaluation stage"
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+   model_evaluation_config = config.get_model_evaluation_config()
+   model_evaluation = ModelEvaluationPipeline(config=model_evaluation_config)
+   model_evaluation.main(best_params=model_training_best_params)
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e

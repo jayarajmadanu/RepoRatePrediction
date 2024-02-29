@@ -40,3 +40,11 @@ stages:
         - model_trainer
     outs:
       - artifacts/model_trainer/model.pkl
+  model_evaluation:
+    cmd: py -m src.repoRatePred.pipeline.stage_05_data_evaluation_pipeline
+    deps:
+      - src/repoRatePred/pipeline/stage_05_data_evaluation_pipeline.py
+      - src/repoRatePred/components/model_evaluation.py
+    params:
+      - config/config.yaml:
+        - model_evaluation
