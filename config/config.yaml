@@ -29,7 +29,11 @@ model_trainer:
 
 model_evaluation:
   root_dir: artifacts/model_evaluation
-  mlflow_uri: http://127.0.0.1:8080
+  mlflow_uri: https://dagshub.com/jayarajmadanu/RepoRatePrediction.mlflow
   test_data_path: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/model.pkl
+  preprocessor_path: artifacts/data_transformation/preprocessor.pkl
+
+prediction_config:
   model_path: artifacts/model_trainer/model.pkl
   preprocessor_path: artifacts/data_transformation/preprocessor.pkl

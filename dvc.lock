@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/repoRatePred/components/data_ingestion.py
       hash: md5
-      md5: 03687064283bc3ed21d579a6415d5db0
-      size: 974
+      md5: e554ad09bb02ab5f2a402a14fd200712
+      size: 1030
     - path: src/repoRatePred/pipeline/stage_01_data_ingestion_pipeline.py
       hash: md5
       md5: 4c2893f1ef45369576aa04bb9a17f246
@@ -179,3 +179,22 @@ stages:
       hash: md5
       md5: 25985b316a03688d1f2d4e534e34f001
       size: 227715
+  model_evaluation:
+    cmd: py -m src.repoRatePred.pipeline.stage_05_data_evaluation_pipeline
+    deps:
+    - path: src/repoRatePred/components/model_evaluation.py
+      hash: md5
+      md5: 9a05ee26d3b7eaa6f63da4e98a9a7e15
+      size: 1535
+    - path: src/repoRatePred/pipeline/stage_05_data_evaluation_pipeline.py
+      hash: md5
+      md5: 4e64041ac92f261e6fa4f1c2361b9882
+      size: 779
+    params:
+      config/config.yaml:
+        model_evaluation:
+          root_dir: artifacts/model_evaluation
+          mlflow_uri: https://dagshub.com/jayarajmadanu/RepoRatePrediction.mlflow
+          test_data_path: artifacts/data_transformation/test.csv
+          model_path: artifacts/model_trainer/model.pkl
+          preprocessor_path: artifacts/data_transformation/preprocessor.pkl

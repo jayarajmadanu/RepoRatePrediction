@@ -2,12 +2,14 @@ from src.repoRatePred.entity.config_entity import DataIngestionConfig
 from src.repoRatePred.logger import logger
 import os
 from src.repoRatePred.utils.common import create_directories
+from dotenv import load_dotenv 
 
 import pandas as pd
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
         self.config = config
+        load_dotenv()
         
     def downloadDataSet(self):
         if not os.path.exists(self.config.local_data_file_path):
